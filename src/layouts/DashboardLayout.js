@@ -21,7 +21,7 @@ export default function DashboardLayout({ children }) {
                 }}
               >
       
-                <Main>{children}</Main>
+                {children}
               </Box>
             </>
           );
