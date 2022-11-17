@@ -37,7 +37,7 @@ export default function Header({ onOpenNav }) {
         sx={{
           boxShadow: 'none',
           height: HEADER.H_MOBILE,
-          width: `calc(100% - ${NAV.W_DASHBOARD + 1}px)`,
+          width: `100%`,
           height: HEADER.H_DASHBOARD_DESKTOP,
         }}
       >
