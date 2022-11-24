@@ -25,7 +25,7 @@ export default function DashboardHome() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <WeeklySummaryWidget title="Weekly Commits" total={714000}  />
+            <WeeklySummaryWidget title="Weekly Commits" total={714000} icon={'ri:git-repository-commits-fill'} />
           </Grid>
           <Grid item xs={12} sm={6} md={5}>
           <TeamCommits
