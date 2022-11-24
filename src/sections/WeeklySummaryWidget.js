@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { alpha, useTheme } from '@mui/material/styles';
 import { Card, Typography } from '@mui/material';
 
+import Iconify from '../components/Iconify';
+
 // ----------------------------------------------------------------------
 
 WeeklySummaryWidget.propTypes = {
@@ -28,6 +30,17 @@ export default function WeeklySummaryWidget({ title, total, icon, color = 'prima
       }}
       {...other}
     >
+      <Iconify
+        icon={icon}
+        sx={{
+          mb: 3,
+          p: 2.5,
+          width: 64,
+          height: 64,
+          borderRadius: '50%',
+          color: (theme) => theme.palette[color].dark,
+        }}
+      />
       <Typography variant="h3">{total}</Typography>
 
       <Typography variant="subtitle2" sx={{ opacity: 1 }}>
