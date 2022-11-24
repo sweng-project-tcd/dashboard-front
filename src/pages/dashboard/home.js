@@ -4,7 +4,7 @@ import { Container, Typography, Grid} from '@mui/material';
 // layouts
 import DashboardLayout from '../../layouts/DashboardLayout';
 
-import { WeeklySummaryWidget } from '../../sections/';
+import { WeeklySummaryWidget, TeamCommits } from '../../sections';
 
 // ----------------------------------------------------------------------
 
@@ -27,6 +27,25 @@ export default function DashboardHome() {
           <Grid item xs={12} sm={6} md={3}>
             <WeeklySummaryWidget title="Weekly Commits" total={714000}  />
           </Grid>
+          <Grid item xs={12} sm={6} md={5}>
+          <TeamCommits
+              title="Commits per team member"
+              subheader="(+10%) than last week"
+              chart={{
+                series: [
+                  { label: 'John', value: 400 },
+                  { label: 'Michael', value: 500},
+                  { label: 'Mary', value: 600},
+                  { label: 'Michelle', value: 800},
+                  { label: 'Bridget', value: 1000},
+                  { label: 'Sarah', value: 1200},
+                  { label: 'James', value: 1400},
+                  { label: 'David', value: 1600},
+                ],
+              }}
+            />
+          </Grid>
+
         </Grid>
       </Container>
     </>
