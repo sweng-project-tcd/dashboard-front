@@ -22,7 +22,6 @@ export default function TeamCommits({ title, subheader, chart, ...other }) {
     tooltip: {
       marker: { show: false },
       y: {
-        formatter: (value) => fNumber(value),
         title: {
           formatter: () => '',
         },
