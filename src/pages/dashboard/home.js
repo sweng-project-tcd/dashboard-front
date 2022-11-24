@@ -4,7 +4,7 @@ import { Container, Typography, Grid} from '@mui/material';
 // layouts
 import DashboardLayout from '../../layouts/DashboardLayout';
 
-import { WeeklySummaryWidget, TeamCommits, DimensionsGraph } from '../../sections';
+import { WeeklySummaryWidget, TeamCommits, DimensionsGraph, BugRate } from '../../sections';
 
 // ----------------------------------------------------------------------
 
@@ -57,6 +57,15 @@ export default function DashboardHome() {
                   ],
                 }}
               />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <BugRate
+              total={207}
+              percent={2.6}
+              chart={{
+                series: [111, 136, 76, 108, 74, 54, 57, 84],
+              }}
+          />
           </Grid>
 
         </Grid>
