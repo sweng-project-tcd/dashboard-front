@@ -1,7 +1,15 @@
 
 import PropTypes from 'prop-types';
+import {useTheme} from '@mui/material/styles';
 // @mui
-import { Stack, AppBar, Toolbar, Button } from '@mui/material';
+import { Stack, AppBar, Toolbar, Button, Typography, IconButton, Icon } from '@mui/material';
+import { bgBlur } from '../../utils/cssStyles';
+import  useOffSetTop  from '../../hooks/useOffSetTop';
+import  useResponsive  from '../../hooks/useResponsive';
+import { useSettingsContext } from '../../components/settings';
+
+import MenuIcon from '@mui/icons-material/Menu';
+
 
 Header.propTypes = {
     onOpenNav: PropTypes.func,
@@ -24,8 +32,27 @@ const NAV = {
 };
 
 export default function Header({ onOpenNav }) {
+    const theme = useTheme();
+
+    const { themeLayout } = useSettingsContext();
+
+    const isNavHorizontal = themeLayout === 'horizontal';
+
+    const isNavMini = themeLayout === 'mini';
+
+    const isDesktop = useResponsive('up', 'lg');
+
+    const isOffset = useOffSetTop(HEADER.H_DASHBOARD_DESKTOP_OFFSET);
+
     const renderContent = (
         <>
+        {isDesktop && isNavHorizontal && <Typography>Metrics Dashboard</Typography>}
+
+        {!isDesktop && (
+          <IconButton onClick={onOpenNav} size="large">
+            <MenuIcon />
+          </IconButton>
+        )}
     
           <Stack flexGrow={1} direction="row" alignItems="center" justifyContent="flex-end" spacing={{ xs: 0.5, sm: 1.5 }}>
             <Button >This is a NAV button</Button>
@@ -37,8 +64,29 @@ export default function Header({ onOpenNav }) {
         sx={{
           boxShadow: 'none',
           height: HEADER.H_MOBILE,
-          width: `100%`,
-          height: HEADER.H_DASHBOARD_DESKTOP,
+          zIndex: theme.zIndex.appBar + 1,
+          ...bgBlur({
+            color: theme.palette.background.default,
+          }),
+          transition: theme.transitions.create(['height'], {
+            duration: theme.transitions.duration.shorter,
+          }),
+          ...(isDesktop && {
+            width: `calc(100% - ${NAV.W_DASHBOARD + 1}px)`,
+            height: HEADER.H_DASHBOARD_DESKTOP,
+            ...(isOffset && {
+              height: HEADER.H_DASHBOARD_DESKTOP_OFFSET,
+            }),
+            ...(isNavHorizontal && {
+              width: 1,
+              bgcolor: 'background.default',
+              height: HEADER.H_DASHBOARD_DESKTOP_OFFSET,
+              borderBottom: (theme) => `dashed 1px ${theme.palette.divider}`,
+            }),
+            ...(isNavMini && {
+              width: `calc(100% - ${NAV.W_DASHBOARD_MINI + 1}px)`,
+            }),
+          }),
         }}
       >
         <Toolbar
