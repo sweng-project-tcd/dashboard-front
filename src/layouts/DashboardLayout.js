@@ -11,6 +11,10 @@ import useResponsive from '../hooks/useResponsive';
 import NavVertical from './nav/NavVertical';
 import NavMini from './nav/NavMini';
 import NavHorizontal from './nav/NavHorizontal';
+
+import Main from './Main';
+
+
 DashboardLayout.propTypes = {
     children: PropTypes.node,
 };
@@ -80,7 +84,7 @@ export default function DashboardLayout({ children }) {
               >
                 {renderNavVertical}
       
-                {children}
+                <Main>{children}</Main>
               </Box>
             </>
           );
