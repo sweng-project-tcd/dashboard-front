@@ -9,7 +9,8 @@ const StyledRoot = styled('div')(({ theme }) => ({
   alignItems: 'center',
   padding: theme.spacing(2, 2.5),
   borderRadius: Number(theme.shape.borderRadius) * 1.5,
-  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.secondary[90] : theme.palette.secondary[30],
+  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.secondary.mainContainerDark : theme.palette.secondary.mainContainer,
+  color: theme.palette.mode === 'dark' ? theme.palette.secondary.onMainContainerDark : theme.palette.secondary.onMainContainer,
   transition: theme.transitions.create('opacity', {
     duration: theme.transitions.duration.shorter,
   }),
