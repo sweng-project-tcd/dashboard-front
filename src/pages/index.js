@@ -58,6 +58,7 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <a>Sweng group <br />
+        CHLOE CAREY, STEVEN CATALUNA, CORMAC FEELY, ALEXANDER O CONNOR, JAMES O'KEEFE, BRIAN SHARKEY, NEIL SHEVLIN, VIRAG VARGA
         </a>
       </footer>
     </div>
