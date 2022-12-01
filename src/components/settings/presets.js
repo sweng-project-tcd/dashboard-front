@@ -49,7 +49,6 @@ export const presets = [
     main: '#fda92d',
     dark: '#B66816',
     darker: '#793908',
-    contrastText: themePalette.grey[800],
   },
   // RED
   {
