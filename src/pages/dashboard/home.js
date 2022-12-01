@@ -6,6 +6,7 @@ import DashboardLayout from '../../layouts/DashboardLayout';
 
 import { WeeklySummaryWidget, TeamCommits, DimensionsGraph, BugRate } from '../../sections';
 import { useTheme } from '@mui/material/styles';
+import CommitTypes from '../../sections/CommitTypes';
 
 // ----------------------------------------------------------------------
 
@@ -85,6 +86,20 @@ export default function DashboardHome() {
                 }}
               />
            
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+          <CommitTypes
+                title="Commit types by team member"
+                chart={{
+                  categories:['John','Michael','Mary','Michelle', 'Bridget', 'Sarah'],
+                  series:[
+                    {name: 'Code additions', data:[12,13,7,4,8,9]},
+                    {name: 'Code Deletions', data:[12,13,7,4,8,9]},
+                    {name: 'Code simplifications', data:[12,13,7,4,8,9]},
+                  ],
+                }}
+          />
+
           </Grid>
 
         </Grid>
