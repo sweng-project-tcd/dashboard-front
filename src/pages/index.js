@@ -9,12 +9,6 @@ import Router from 'next/router'
 import GithubIcon from '@mui/icons-material/Github';
 Home.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
-
-  const sendValue = () => {
-      return console.log(valueRef.current.value) //on clicking button accesing current value of TextField and outputing it to console 
-  }
-
-
 export default function Home() {
   const valueRef = useRef('') //creating a refernce for TextField Component
 
