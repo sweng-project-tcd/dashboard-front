@@ -2,7 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 import DashboardLayout from '../layouts/DashboardLayout'
+import TextField from '@mui/material/TextField';
+import InputWithIcon from '../components/TextInput'
 Home.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
+
 
 export default function Home() {
   return (
@@ -16,6 +19,10 @@ export default function Home() {
         <h1 className={styles.title}>
          <a> Metrics Dashboard</a>
         </h1>
+        <inp>
+          hello
+          <InputWithIcon tag = "url" />
+        </inp>
       </main>
 
       <footer className={styles.footer}>

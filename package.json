@@ -12,7 +12,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@iconify/react": "^4.0.0",
-    "@mui/icons-material": "^5.10.15",
+    "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.14",
     "apexcharts": "^3.36.3",
     "eslint": "8.27.0",
