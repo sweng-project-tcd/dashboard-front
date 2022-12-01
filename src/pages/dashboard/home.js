@@ -5,13 +5,14 @@ import { Container, Typography, Grid} from '@mui/material';
 import DashboardLayout from '../../layouts/DashboardLayout';
 
 import { WeeklySummaryWidget, TeamCommits, DimensionsGraph, BugRate } from '../../sections';
+import { useTheme } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 
 DashboardHome.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default function DashboardHome() {
-
+  const theme = useTheme();
     return (
 <>
       <Head>
@@ -24,11 +25,50 @@ export default function DashboardHome() {
         </Typography>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={3}>
-            <WeeklySummaryWidget title="Weekly Commits" total={714000} icon={'ri:git-repository-commits-fill'} />
+          <Grid item xs={12} sm={6} md={4}>
+            <WeeklySummaryWidget title="Weekly Commits" total={714000} icon={'ri:git-repository-commits-fill'}  percent={20}  chart={{
+                colors: [theme.palette.primary.main],
+                series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+              }}/>
           </Grid>
-          <Grid item xs={12} sm={6} md={5}>
-            <TeamCommits
+          <Grid item xs={12} sm={6} md={4}>
+            <WeeklySummaryWidget title="Daily Commits" total={714000} icon={'ri:git-repository-commits-fill'} percent={30}  chart={{
+                colors: [theme.palette.primar],
+                series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+              }}/>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <WeeklySummaryWidget title="Total Contributors" total={714000} icon={'ri:git-repository-commits-fill'} percent={40} chart={{
+                colors: [theme.palette.primary.main],
+                series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+              }}/>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+          <BugRate
+              total={207}
+              percent={2.6}
+              chart={{
+                series: [111, 136, 76, 108, 74, 54, 57, 84],
+              }}
+          />
+            
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <DimensionsGraph
+                title="Organizational Dimensions"
+                chart={{
+                  categories: ['Commits', 'Pull Request', 'Code Review', 'Issues'],
+                  colors: [theme.palette.colors.blue, theme.palette.colors.green, theme.palette.colors.orange],
+                  series: [
+                    { name: 'Data Engineering', data: [80, 50, 30, 40] },
+                    { name: 'Product Engineering', data: [20, 30, 40, 80] },
+                    { name: 'Growth Team', data: [44, 76, 78, 13] },
+                  ],
+                }}
+              />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+          <TeamCommits
                 title="Commits per team member"
                 subheader="(+10%) than last week"
                 chart={{
@@ -44,28 +84,7 @@ export default function DashboardHome() {
                   ],
                 }}
               />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <DimensionsGraph
-                title="Organizational Dimensions"
-                chart={{
-                  categories: ['Commits', 'Pull Request', 'Code Review', 'Issues'],
-                  series: [
-                    { name: 'Data Engineering', data: [80, 50, 30, 40] },
-                    { name: 'Product Engineering', data: [20, 30, 40, 80] },
-                    { name: 'Growth Team', data: [44, 76, 78, 13] },
-                  ],
-                }}
-              />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <BugRate
-              total={207}
-              percent={2.6}
-              chart={{
-                series: [111, 136, 76, 108, 74, 54, 57, 84],
-              }}
-          />
+           
           </Grid>
 
         </Grid>
