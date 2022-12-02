@@ -1,10 +1,13 @@
 import '../../styles/globals.css'
+import ThemeProvider from '../theme';
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout ?? ((page) => page);
   
   return (
-    getLayout(<Component {...pageProps} />)
+    <ThemeProvider>
+      {getLayout(<Component {...pageProps} />)}
+    </ThemeProvider>
   )
 }
 

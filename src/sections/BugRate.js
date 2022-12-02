@@ -65,9 +65,9 @@ export default function BugRate({ total, percent, color = 'primary', chart, sx, 
     <Card
       sx={{
         p: 3,
-        boxShadow: 0,
+        boxShadow: 1,
         color: `${color}.darker`,
-        bgcolor: '#efefef',
+        bgcolor: theme.palette.primary.mainContainer,
         ...sx,
       }}
       {...other}
