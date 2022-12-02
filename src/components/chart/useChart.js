@@ -28,14 +28,8 @@ export default function useChart(options) {
     // Colors
     colors: [
       theme.palette.primary.main,
-      theme.palette.warning.main,
-      theme.palette.info.main,
       theme.palette.error.main,
-      theme.palette.success.main,
-      theme.palette.warning.dark,
-      theme.palette.success.darker,
-      theme.palette.info.dark,
-      theme.palette.info.darker,
+      theme.palette.tertiary.main,
     ],
 
     // Chart
@@ -100,7 +94,7 @@ export default function useChart(options) {
     // Markers
     markers: {
       size: 0,
-      strokeColors: theme.palette.background.paper,
+      strokeColors: theme.palette.background.default,
     },
 
     // Tooltip
