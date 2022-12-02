@@ -31,7 +31,7 @@ export default function Home() {
          <a> Metrics Dashboard</a>
         </h1>
         <inp>
-          <GithubIcon sx={{ fontSize: 40, color: "#0070f3" }}/>
+          <GithubIcon sx={{ fontSize: 30, color: "#0070f3" }}/>
         <TextField
             id='outlined-textarea'
             label='URL'
