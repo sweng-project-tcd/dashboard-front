@@ -15,33 +15,48 @@ CommitTypes.propTypes = {
 
 export default function CommitTypes({title, subheader, chart, ...other}){
 
-    const { colors, series, options } = chart;
-
-  const chartSeries = series.map((i) => i.value);
+    const { colors,categories, series, options, } = chart;
 
   const chartOptions = useChart({
     colors,
     tooltip: {
-      marker: { show: false },
-      y: {
-        
-          formatter: (val) => val,
-        
-      },
+        marker:{show: true},
+      
     },
     chart:{
        type: 'bar',
        stacked: true,
-       stackType: "100%", 
+       stackType: '100%', 
     },
+    dataLabels: {enabled:true},
+
     plotOptions: {
       bar: {
         horizontal: true,
       },
     },
     xaxis: {
-      categories: series.map((i) => i.label),
+      categories: categories,
+      formatter: function(val){return val+ '%' }
+
     },
+    yaxis:{
+        formatter: function(val){return val+ '%' }
+    },
+    stroke: {
+        width: 1,
+        colors: ['#fff']
+      },
+    fill: {
+        opacity: 1
+      
+    },
+    
+    legend: {
+        position: 'top',
+        horizontalAlign: 'left',
+        offsetX: 40
+      },
     ...options,
   });
 
@@ -50,7 +65,7 @@ export default function CommitTypes({title, subheader, chart, ...other}){
       <CardHeader title={title} subheader={subheader} />
 
       <Box sx={{ mx: 3 }} dir="ltr">
-        <Chart type="bar" series={[{ data: chartSeries }]} options={chartOptions} height={364} />
+        <Chart type="bar" series={series} options={chartOptions} height={364} />
       </Box>
     </Card>
   );

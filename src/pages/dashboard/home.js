@@ -1,12 +1,13 @@
 // next
 import Head from 'next/head';
-import { Container, Typography, Grid} from '@mui/material';
+import { Container, Typography, Grid, CardHeader, Card, Box} from '@mui/material';
 // layouts
 import DashboardLayout from '../../layouts/DashboardLayout';
 
 import { WeeklySummaryWidget, TeamCommits, DimensionsGraph, BugRate } from '../../sections';
 import { useTheme } from '@mui/material/styles';
 import CommitTypes from '../../sections/CommitTypes';
+import Chart from '../../components/chart';
 
 // ----------------------------------------------------------------------
 
@@ -92,10 +93,10 @@ export default function DashboardHome() {
                 title="Commit types by team member"
                 chart={{
                   categories:['John','Michael','Mary','Michelle', 'Bridget', 'Sarah'],
+                  
                   series:[
-                    {name: 'Code additions', data:[12,13,7,4,8,9]},
-                    {name: 'Code Deletions', data:[12,13,7,4,8,9]},
-                    {name: 'Code simplifications', data:[12,13,7,4,8,9]},
+                    {name: 'Code additions', data:[7,13,7,4,4,9]},
+                    {name: 'Code Deletions', data:[12,13,20,4,8,9]},
                   ],
                 }}
           />
