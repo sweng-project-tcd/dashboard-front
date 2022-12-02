@@ -1,20 +1,40 @@
 // next
 import Head from 'next/head';
-import { Container, Typography, Grid, CardHeader, Card, Box} from '@mui/material';
+
+import { Container, Typography, Grid, CardHeader, Card, Box, Button} from '@mui/material';
 // layouts
 import DashboardLayout from '../../layouts/DashboardLayout';
 
 import { WeeklySummaryWidget, TeamCommits, DimensionsGraph, BugRate } from '../../sections';
 import { useTheme } from '@mui/material/styles';
+
 import CommitTypes from '../../sections/CommitTypes';
 import Chart from '../../components/chart';
+
+import { useEffect, useCallback, useState } from 'react';
+import axios from '../../utils/axios';
+
 
 // ----------------------------------------------------------------------
 
 DashboardHome.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default function DashboardHome() {
+
+
   const theme = useTheme();
+
+  // test method just to show how we can make calls to the API. 
+  // const getTestData = useCallback(async () => {
+  //   try{
+  //     const response = await axios.get('/v1/test');
+  //     console.log(response);
+  //   }
+  //   catch(error){
+  //     console.log(error);
+  //   }
+  // }, []);
+
     return (
 <>
       <Head>
@@ -35,7 +55,7 @@ export default function DashboardHome() {
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <WeeklySummaryWidget title="Daily Commits" total={714000} icon={'ri:git-repository-commits-fill'} percent={30}  chart={{
-                colors: [theme.palette.primar],
+                colors: [theme.palette.primary.main],
                 series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
               }}/>
           </Grid>
